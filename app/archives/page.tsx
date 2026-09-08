@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { Archive, BarChart3, CalendarDays, Trophy, Users } from "lucide-react";
+import { supabase } from "../lib/supabaseClient";
 
 type MatchStatus = "Scheduled" | "Live" | "Finished";
 
@@ -130,11 +130,7 @@ type LeaderboardStatKey =
   | "aces"
   | "blocks";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-const supabase: SupabaseClient | null =
-  supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 function normalizeText(value: string) {
   return value.trim().toLowerCase();

@@ -2,13 +2,8 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { createClient, type Session, type SupabaseClient } from "@supabase/supabase-js";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-
-const supabase: SupabaseClient | null =
-  supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+import type { Session } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabaseClient";
 
 function cleanDiscordUsername(value?: string | null) {
   return String(value ?? "").trim().replace(/^@/, "").replace(/#0$/, "");

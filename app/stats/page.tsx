@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { BarChart3, Edit3, Save, Shield, Trophy } from "lucide-react";
+import { supabase } from "../lib/supabaseClient";
 
 type MatchStatus = "Scheduled" | "Live" | "Finished";
 
@@ -97,11 +97,7 @@ type StatField = keyof Pick<
   | "misc_errors"
 >;
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-const supabase: SupabaseClient | null =
-  supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 const STAT_FIELDS: { key: StatField; label: string }[] = [
   { key: "spiking_errors", label: "Spk Err" },

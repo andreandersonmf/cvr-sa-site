@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { ChevronDown, Star, Trophy } from "lucide-react";
+import { supabase } from "../lib/supabaseClient";
 
 type Country = {
   name: string;
@@ -478,11 +478,7 @@ const BRICK_COLORS: BrickColor[] = [
 ];
 
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-const supabase: SupabaseClient | null =
-  supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 function normalizeText(value: string) {
   return value.trim().toLowerCase();
