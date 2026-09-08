@@ -4717,9 +4717,6 @@ export default function CVRSASitePage() {
                 </div>
               </div>
 
-              {notice ? (
-                <p className="mt-5 text-sm text-amber-300">{notice}</p>
-              ) : null}
             </div>
 
             <div className="flex justify-center md:justify-end">
@@ -5853,20 +5850,36 @@ export default function CVRSASitePage() {
                 </div>
               ) : null}
 
+              {!siteProfile ? (
+                <div className="rounded-[2rem] border border-white/10 bg-[#1C120A] p-8 text-center">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[#5865F2]/30 bg-[#5865F2]/15">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-[#AEB6FF]">
+                      <path d="M20.3 5.37A16.1 16.1 0 0 0 16.34 4c-.17.31-.36.73-.49 1.06a14.9 14.9 0 0 0-4.4 0A8.4 8.4 0 0 0 10.96 4a16.2 16.2 0 0 0-3.98 1.38C4.46 9.13 3.78 12.8 4.12 16.4A16.4 16.4 0 0 0 9 18.9c.4-.54.75-1.11 1.05-1.72-.58-.22-1.14-.49-1.66-.8.14-.1.27-.21.4-.32a11.55 11.55 0 0 0 10.24 0c.13.11.26.22.4.32-.52.31-1.08.58-1.66.8.3.61.66 1.18 1.05 1.72a16.3 16.3 0 0 0 4.88-2.5c.42-4.17-.72-7.8-3.4-11.03ZM9.75 14.17c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Zm6.2 0c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Z" />
+                    </svg>
+                  </div>
+                  <h3 className="mt-4 text-xl font-black text-white">
+                    Discord Login Required
+                  </h3>
+                  <p className="mx-auto mt-2 max-w-sm text-sm text-white/60">
+                    You need to be logged in with Discord to register a team.
+                    This connects the registration to your CVR SA profile.
+                  </p>
+                  <Link
+                    href="/login"
+                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#5865F2] px-6 py-3 font-semibold text-white transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:brightness-110 active:translate-y-0.5"
+                  >
+                    Login with Discord
+                  </Link>
+                </div>
+              ) : (
               <form
                 onSubmit={handleRegisterSubmit}
                 className="rounded-[2rem] border border-white/10 bg-[#1C120A] p-6 md:p-8"
               >
-                {siteProfile ? (
-                  <div className="mb-5 rounded-[1.5rem] border border-orange-400/20 bg-orange-400/10 p-4 text-sm text-amber-200">
-                    Discord profile connected: @{siteProfile.discord_username || "CVR SA user"}.
-                    {siteProfile.roblox_username ? " Roblox data was pre-filled from your profile." : " Add your Roblox info in Profile to auto-fill future registrations."}
-                  </div>
-                ) : (
-                  <div className="mb-5 rounded-[1.5rem] border border-white/10 bg-white/5 p-4 text-sm text-white/60">
-                    Optional: <Link href="/login" className="font-semibold text-amber-300 underline decoration-amber-300/30">login with Discord</Link> to connect this registration to your CVR SA profile.
-                  </div>
-                )}
+                <div className="mb-5 rounded-[1.5rem] border border-orange-400/20 bg-orange-400/10 p-4 text-sm text-amber-200">
+                  Discord profile connected: @{siteProfile.discord_username || "CVR SA user"}.
+                  {siteProfile.roblox_username ? " Roblox data was pre-filled from your profile." : " Add your Roblox info in Profile to auto-fill future registrations."}
+                </div>
                 <div className="grid gap-5 md:grid-cols-2">
                   <div className="md:col-span-2">
                     <label className="mb-2 block text-sm font-medium text-white/70">
@@ -6020,6 +6033,7 @@ export default function CVRSASitePage() {
                       : "Submit Registration"}
                 </button>
               </form>
+              )}
             </div>
           </div>
           <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
@@ -6070,10 +6084,35 @@ export default function CVRSASitePage() {
             </div>
 
             <div>
+              {!siteProfile ? (
+                <div className="rounded-[2rem] border border-white/10 bg-[#1C120A] p-8 text-center">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[#5865F2]/30 bg-[#5865F2]/15">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-[#AEB6FF]">
+                      <path d="M20.3 5.37A16.1 16.1 0 0 0 16.34 4c-.17.31-.36.73-.49 1.06a14.9 14.9 0 0 0-4.4 0A8.4 8.4 0 0 0 10.96 4a16.2 16.2 0 0 0-3.98 1.38C4.46 9.13 3.78 12.8 4.12 16.4A16.4 16.4 0 0 0 9 18.9c.4-.54.75-1.11 1.05-1.72-.58-.22-1.14-.49-1.66-.8.14-.1.27-.21.4-.32a11.55 11.55 0 0 0 10.24 0c.13.11.26.22.4.32-.52.31-1.08.58-1.66.8.3.61.66 1.18 1.05 1.72a16.3 16.3 0 0 0 4.88-2.5c.42-4.17-.72-7.8-3.4-11.03ZM9.75 14.17c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Zm6.2 0c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Z" />
+                    </svg>
+                  </div>
+                  <h3 className="mt-4 text-xl font-black text-white">
+                    Discord Login Required
+                  </h3>
+                  <p className="mx-auto mt-2 max-w-sm text-sm text-white/60">
+                    You need to be logged in with Discord to apply for a staff
+                    role. This connects the application to your CVR SA profile.
+                  </p>
+                  <Link
+                    href="/login"
+                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#5865F2] px-6 py-3 font-semibold text-white transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:brightness-110 active:translate-y-0.5"
+                  >
+                    Login with Discord
+                  </Link>
+                </div>
+              ) : (
               <form
                 onSubmit={handleStaffRegisterSubmit}
                 className="rounded-[2rem] border border-white/10 bg-[#1C120A] p-6 md:p-8"
               >
+                <div className="mb-5 rounded-[1.5rem] border border-orange-400/20 bg-orange-400/10 p-4 text-sm text-amber-200">
+                  Discord profile connected: @{siteProfile.discord_username || "CVR SA user"}.
+                </div>
                 <div className="grid gap-5 md:grid-cols-2">
                   <div className="md:col-span-2">
                     <label className="mb-2 block text-sm font-medium text-white/70">
@@ -6214,6 +6253,7 @@ export default function CVRSASitePage() {
                     : "Submit Staff Application"}
                 </button>
               </form>
+              )}
             </div>
           </div>
         </section>
@@ -6227,37 +6267,49 @@ export default function CVRSASitePage() {
             <p>CVR South America</p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-orange-400/10 bg-orange-500/[0.06] p-2 backdrop-blur-sm">
-            <AnimatedNavButton label="Schedule" targetId="schedule" />
-            <AnimatedNavButton label="Register" targetId="register" />
-            {siteProfile ? (
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-orange-400/10 bg-orange-500/[0.06] p-2 backdrop-blur-sm">
+              <AnimatedNavButton label="Schedule" targetId="schedule" />
+              <AnimatedNavButton label="Register" targetId="register" />
               <Link
-                href="/profile"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#5865F2]/30 bg-[#5865F2]/15 px-3 py-1.5 text-sm font-bold text-white transition duration-200 hover:bg-[#5865F2]/25"
+                href="/admin"
+                className="rounded-xl px-2 py-1 text-sm text-white/80 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white active:translate-y-0.5"
               >
-                <span>Profile</span>
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-[#AEB6FF]">
-                  <path d="M20.3 5.37A16.1 16.1 0 0 0 16.34 4c-.17.31-.36.73-.49 1.06a14.9 14.9 0 0 0-4.4 0A8.4 8.4 0 0 0 10.96 4a16.2 16.2 0 0 0-3.98 1.38C4.46 9.13 3.78 12.8 4.12 16.4A16.4 16.4 0 0 0 9 18.9c.4-.54.75-1.11 1.05-1.72-.58-.22-1.14-.49-1.66-.8.14-.1.27-.21.4-.32a11.55 11.55 0 0 0 10.24 0c.13.11.26.22.4.32-.52.31-1.08.58-1.66.8.3.61.66 1.18 1.05 1.72a16.3 16.3 0 0 0 4.88-2.5c.42-4.17-.72-7.8-3.4-11.03ZM9.75 14.17c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Zm6.2 0c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Z" />
-                </svg>
+                Admin
               </Link>
-            ) : (
-              <button
-                type="button"
-                onClick={handleDiscordLoginFromHeader}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#5865F2] px-3 py-1.5 text-sm font-bold text-white transition duration-200 hover:brightness-110"
-              >
-                Discord Login
-              </button>
-            )}
-            <Link
-              href="/admin"
-              className="rounded-xl px-2 py-1 text-sm text-white/80 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white active:translate-y-0.5"
-            >
-              Admin
-            </Link>
+            </div>
+
+            <div className="rounded-2xl border border-orange-400/10 bg-orange-500/[0.06] p-2 backdrop-blur-sm">
+              {siteProfile ? (
+                <Link
+                  href="/profile"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#5865F2]/30 bg-[#5865F2]/15 px-3 py-1.5 text-sm font-bold text-white transition duration-200 hover:bg-[#5865F2]/25"
+                >
+                  <span>Profile</span>
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-[#AEB6FF]">
+                    <path d="M20.3 5.37A16.1 16.1 0 0 0 16.34 4c-.17.31-.36.73-.49 1.06a14.9 14.9 0 0 0-4.4 0A8.4 8.4 0 0 0 10.96 4a16.2 16.2 0 0 0-3.98 1.38C4.46 9.13 3.78 12.8 4.12 16.4A16.4 16.4 0 0 0 9 18.9c.4-.54.75-1.11 1.05-1.72-.58-.22-1.14-.49-1.66-.8.14-.1.27-.21.4-.32a11.55 11.55 0 0 0 10.24 0c.13.11.26.22.4.32-.52.31-1.08.58-1.66.8.3.61.66 1.18 1.05 1.72a16.3 16.3 0 0 0 4.88-2.5c.42-4.17-.72-7.8-3.4-11.03ZM9.75 14.17c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Zm6.2 0c-.95 0-1.73-.89-1.73-1.98s.76-1.99 1.73-1.99c.97 0 1.75.9 1.73 1.99 0 1.09-.76 1.98-1.73 1.98Z" />
+                  </svg>
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleDiscordLoginFromHeader}
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#5865F2] px-3 py-1.5 text-sm font-bold text-white transition duration-200 hover:brightness-110"
+                >
+                  Discord Login
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </footer>
+      {notice ? (
+        <div className="fixed inset-x-4 bottom-6 z-[100] mx-auto flex max-w-md justify-center sm:inset-x-0">
+          <div className="w-full rounded-2xl border border-orange-400/25 bg-[#21150A] px-5 py-4 text-center text-sm font-medium text-amber-200 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+            {notice}
+          </div>
+        </div>
+      ) : null}
       {successDialog.open ? (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/55 px-4 backdrop-blur-sm">
           <div className="w-full max-w-md rounded-[2rem] border border-orange-400/25 bg-[#21150A] p-6 shadow-[0_20px_80px_rgba(249,115,22,0.18)]">

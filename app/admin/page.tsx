@@ -4669,9 +4669,6 @@ export default function CVRSASitePage() {
                       </div>
                     </div>
                   </div>
-                {adminNotice ? (
-                  <p className="text-sm text-amber-300">{adminNotice}</p>
-                ) : null}
 
                 <div id="admin-setup" className="scroll-mt-28">
                   <div className="mb-4">
@@ -6794,6 +6791,13 @@ export default function CVRSASitePage() {
           </div>
         </div>
       </footer>
+      {adminNotice ? (
+        <div className="fixed inset-x-4 bottom-6 z-[100] mx-auto flex max-w-md justify-center sm:inset-x-0">
+          <div className="w-full rounded-2xl border border-orange-400/25 bg-[#21150A] px-5 py-4 text-center text-sm font-medium text-amber-200 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+            {adminNotice}
+          </div>
+        </div>
+      ) : null}
       {successDialog.open ? (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/55 px-4 backdrop-blur-sm">
           <div className="w-full max-w-md rounded-[2rem] border border-orange-400/25 bg-[#21150A] p-6 shadow-[0_20px_80px_rgba(249,115,22,0.18)]">
