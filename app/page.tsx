@@ -4745,7 +4745,7 @@ export default function CVRSASitePage() {
 
                   <div className="relative z-20 mt-6 flex items-center justify-center gap-5 sm:gap-6">
                     <a
-                      href="https://discord.gg/uvVkWBq74Q"
+                      href="https://discord.gg/sPPnFDVMgq"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex flex-col items-center gap-2"
@@ -4781,7 +4781,7 @@ export default function CVRSASitePage() {
                     </a>
 
                     <a
-                      href="https://challonge.com"
+                      href="https://challonge.com/pt_BR/communities/cvr-sa"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex flex-col items-center gap-2"
@@ -5991,7 +5991,7 @@ export default function CVRSASitePage() {
                         I confirm that I am in the official CVR SA Discord server
                         and understand that all players must also be there:{" "}
                         <a
-                          href="https://discord.com/invite/uvVkWBq74Q"
+                          href="https://discord.gg/sPPnFDVMgq"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="font-semibold text-amber-300 underline underline-offset-4"
@@ -6185,9 +6185,9 @@ export default function CVRSASitePage() {
                       />
                       <span>
                         I confirm that I am familiar with the league rules and
-                        the RVL rulebook:{" "}
+                        the CVR rulebook:{" "}
                         <a
-                          href="https://docs.google.com/document/d/1daPK-6Ud4KnbRPuuALMqET1YUfhgHcvNV8_bTHJcacY/edit?usp=sharing"
+                          href="https://docs.google.com/document/d/1T_w38WJRI9-IIoVl6BAeAl7icpGO58X6_TsflJMUXL4/edit?usp=sharing"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="font-semibold text-amber-300 underline underline-offset-4"
