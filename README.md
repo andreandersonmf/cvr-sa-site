@@ -5,7 +5,7 @@ technologies. CVR SA is a complete system for organizing competitions
 for the Roblox game **CVR: Retro**, with authentication, fixtures,
 rankings and an admin panel.
 
-🌐 **[Visit the platform here](https://cvr-sa-site.vercel.app/)**
+🌐 **[Visit the platform here](https://cvr-sa.vercel.app/)**
 
 ---
 
