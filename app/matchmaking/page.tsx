@@ -251,7 +251,7 @@ export default function MatchmakingPage() {
         <section id="vip" className="mt-16">
           <h2 className="text-3xl font-black">Buy VIP</h2>
           <p className="mt-2 text-white/60">
-            Payment via Pix, securely processed by Stripe. Valid for 30 days from confirmation.
+            Payment securely processed by Stripe. Valid for 30 days from confirmation.
             Your VIP/VIP+ Discord role is applied automatically as soon as the payment is confirmed.
           </p>
 
@@ -302,7 +302,7 @@ export default function MatchmakingPage() {
                       : "bg-orange-500 text-black hover:brightness-110"
                   }`}
                 >
-                  {loadingTier === tier.key ? "Redirecting..." : `Buy ${tier.name} via Pix`}
+                  {loadingTier === tier.key ? "Redirecting..." : `Buy ${tier.name}`}
                 </button>
               </div>
             ))}
