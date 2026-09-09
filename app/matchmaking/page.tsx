@@ -36,8 +36,8 @@ const TIERS: {
     accent: "from-orange-400 to-orange-600",
     perks: [
       "+10% ELO gained on wins",
-      "Priority to be drawn as captain",
-      "Exclusive Discord role",
+      "Exclusive Discord role + VIP badge on the leaderboard",
+      "Access to the VIP queue channel - wins there are worth 2x ELO",
     ],
   },
   {
@@ -47,8 +47,9 @@ const TIERS: {
     accent: "from-amber-300 to-amber-500",
     perks: [
       "+20% ELO gained on wins",
-      "Maximum priority to be drawn as captain",
-      "Exclusive Discord role + leaderboard highlight",
+      "Priority queue join - take any position, even a full one, while the queue isn't full and picks haven't started",
+      "Exclusive Discord role + VIP badge on the leaderboard",
+      "Access to the VIP queue channel - wins there are worth 2x ELO",
     ],
   },
 ];
