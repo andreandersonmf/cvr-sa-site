@@ -162,6 +162,7 @@ export default function MatchmakingPage() {
           <nav className="flex flex-wrap gap-2 rounded-2xl border border-orange-400/10 bg-orange-500/[0.06] p-1.5 text-sm text-white/70 backdrop-blur-sm">
             <Link href="/" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/10">Home</Link>
             <Link href="/matchmaking" className="rounded-xl border border-orange-400/30 bg-orange-400/10 px-4 py-2 text-amber-300">Matchmaking</Link>
+            <Link href="/pickems" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/10">Pickems</Link>
             <Link href="/archives" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/10">Archives</Link>
             <Link href="/profile" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/10">Profile</Link>
           </nav>

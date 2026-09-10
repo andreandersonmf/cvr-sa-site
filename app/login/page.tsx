@@ -62,6 +62,7 @@ export default function LoginPage() {
           <div className="flex flex-wrap gap-2 text-sm text-white/70">
             <Link href="/" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Home</Link>
             <Link href="/matchmaking" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Matchmaking</Link>
+            <Link href="/pickems" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Pickems</Link>
             <Link href="/archives" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Archives</Link>
           </div>
         </nav>

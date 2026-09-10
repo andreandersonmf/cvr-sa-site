@@ -4569,6 +4569,12 @@ export default function CVRSASitePage() {
               >
                 Matchmaking
               </Link>
+              <Link
+                href="/pickems"
+                className="rounded-xl px-2 py-1 text-sm text-white/80 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white active:translate-y-0.5"
+              >
+                Pickems
+              </Link>
               <AnimatedNavButton label="Register" targetId="register" />
               <Link
                 href="/admin"
@@ -4641,6 +4647,7 @@ export default function CVRSASitePage() {
               <button type="button" onClick={() => handleMobileNav("stat-track")} className="rounded-2xl px-4 py-3 text-left hover:bg-white/5">Stat Track</button>
               <Link href="/archives" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Archives</Link>
               <Link href="/matchmaking" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Matchmaking</Link>
+              <Link href="/pickems" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Pickems</Link>
               <button type="button" onClick={() => handleMobileNav("register")} className="rounded-2xl px-4 py-3 text-left hover:bg-white/5">Register</button>
               <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Admin</Link>
             </div>

@@ -99,6 +99,12 @@ type MatchRow = {
   set4_away: number | null;
   set5_home: number | null;
   set5_away: number | null;
+
+  // Pickems: how many sets this match is played to (3 or 5). Purely
+  // informational for how many prediction fields show on /pickems -
+  // the real result above still records however many sets actually
+  // happened, same as before.
+  best_of: number;
 };
 
 type StandingRow = {
@@ -135,6 +141,7 @@ type MatchDraft = {
   media_id: number | null;
   stat_tracker_id: number | null;
   is_star_match: boolean;
+  best_of: number;
 
   set1_home: number | null;
   set1_away: number | null;
@@ -2123,6 +2130,7 @@ export default function CVRSASitePage() {
     status: "Scheduled" as MatchStatus,
     is_star_match: false,
     stat_tracker_id: "",
+    best_of: 3 as 3 | 5,
 
     set1_home: "",
     set1_away: "",
@@ -2408,6 +2416,7 @@ export default function CVRSASitePage() {
               media_id: match.media_id ?? null,
               stat_tracker_id: match.stat_tracker_id,
               is_star_match: Boolean(match.is_star_match),
+              best_of: match.best_of === 5 ? 5 : 3,
 
               set1_home: match.set1_home ?? null,
               set1_away: match.set1_away ?? null,
@@ -3638,6 +3647,7 @@ export default function CVRSASitePage() {
         ? Number(matchForm.stat_tracker_id)
         : null,
       is_star_match: matchForm.is_star_match,
+      best_of: matchForm.best_of,
       stats_finalized: false,
       stats_submitted_for_review: false,
       season_id: activeSeasonId,
@@ -3664,6 +3674,7 @@ export default function CVRSASitePage() {
       status: "Scheduled",
       is_star_match: false,
       stat_tracker_id: "",
+      best_of: 3,
 
       set1_home: "",
       set1_away: "",
@@ -3725,6 +3736,7 @@ export default function CVRSASitePage() {
       media_id: draft.media_id,
       stat_tracker_id: draft.stat_tracker_id,
       is_star_match: draft.is_star_match,
+      best_of: draft.best_of,
     };
 
     if (current.stats_finalized && canEditAsAdmin) {
@@ -4395,6 +4407,12 @@ export default function CVRSASitePage() {
               >
                 Matchmaking
               </Link>
+              <Link
+                href="/pickems"
+                className="rounded-xl px-2 py-1 text-sm text-white/80 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white active:translate-y-0.5"
+              >
+                Pickems
+              </Link>
             </nav>
           </div>
 
@@ -4438,6 +4456,7 @@ export default function CVRSASitePage() {
               <Link href="/stats" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Stats</Link>
               <Link href="/archives" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Archives</Link>
               <Link href="/matchmaking" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Matchmaking</Link>
+              <Link href="/pickems" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Pickems</Link>
               <Link href="/profile" onClick={() => setMobileMenuOpen(false)} className="rounded-2xl px-4 py-3 hover:bg-white/5">Profile</Link>
             </div>
           </div>
@@ -4953,6 +4972,37 @@ export default function CVRSASitePage() {
                           options={statusOptions}
                           placeholder="Select status"
                         />
+                      </div>
+
+                      <div>
+                        <label className="mb-2 block text-sm font-medium text-white/70">
+                          Format
+                        </label>
+                        <div className="flex gap-2">
+                          {([3, 5] as const).map((option) => (
+                            <button
+                              key={option}
+                              type="button"
+                              onClick={() =>
+                                setMatchForm((prev) => ({
+                                  ...prev,
+                                  best_of: option,
+                                }))
+                              }
+                              className={`flex-1 rounded-2xl border px-4 py-3 text-sm font-semibold transition duration-200 ${
+                                matchForm.best_of === option
+                                  ? "border-orange-400/60 bg-orange-500/20 text-orange-200"
+                                  : "border-white/10 bg-white/5 text-white/60 hover:border-orange-400/30"
+                              }`}
+                            >
+                              Bo{option}
+                            </button>
+                          ))}
+                        </div>
+                        <p className="mt-2 text-xs text-white/45">
+                          Controls how many set fields show up on the Pickems
+                          prediction form for this match.
+                        </p>
                       </div>
 
                       <div className="md:col-span-2">
@@ -6447,6 +6497,34 @@ export default function CVRSASitePage() {
                                 </label>
                                ) : null}
 
+                                {adminLogged ? (
+                                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                    <p className="mb-3 text-sm font-semibold text-white/70">
+                                      Pickems Format
+                                    </p>
+                                    <div className="flex gap-2">
+                                      {([3, 5] as const).map((option) => (
+                                        <button
+                                          key={option}
+                                          type="button"
+                                          onClick={() =>
+                                            updateMatchDraft(match.id, {
+                                              best_of: option,
+                                            })
+                                          }
+                                          className={`flex-1 rounded-2xl border px-4 py-2 text-sm font-semibold transition duration-200 ${
+                                            (matchDrafts[match.id]?.best_of ?? 3) === option
+                                              ? "border-orange-400/60 bg-orange-500/20 text-orange-200"
+                                              : "border-white/10 bg-white/5 text-white/60 hover:border-orange-400/30"
+                                          }`}
+                                        >
+                                          Bo{option}
+                                        </button>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ) : null}
+
                                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                                   <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-amber-300">
                                     Set Results
@@ -6781,6 +6859,12 @@ export default function CVRSASitePage() {
               className="rounded-xl px-2 py-1 text-sm text-white/80 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white active:translate-y-0.5"
             >
               Matchmaking
+            </Link>
+            <Link
+              href="/pickems"
+              className="rounded-xl px-2 py-1 text-sm text-white/80 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white active:translate-y-0.5"
+            >
+              Pickems
             </Link>
             <Link
               href="/profile"
