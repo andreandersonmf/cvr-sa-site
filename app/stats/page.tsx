@@ -801,7 +801,6 @@ export default function StatsPage() {
               </p>
               <p className="mt-3 text-sm font-semibold uppercase tracking-[0.22em] text-amber-300">
                 {activeSeason?.name ?? "Active Season"}
-                {activeSeason?.theme_name ? ` • ${activeSeason.theme_name}` : ""}
               </p>
             </div>
 
