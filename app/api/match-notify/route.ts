@@ -90,14 +90,14 @@ function buildEmbed(match: MatchPayload, eventType: MatchStatus) {
 
   if (eventType === "Live") {
     return {
-      title: `🔴 CVR SA MATCH LIVE${star}`,
+      title: `🔴 NVL MATCH LIVE${star}`,
       description: "The court is live now. Join the stream and support your team!",
       color: 0xef4444,
       fields: [
         ...baseFields(match),
         { name: "Status", value: "`LIVE NOW`", inline: false },
       ],
-      footer: { text: "CVR South America • Stream Alert" },
+      footer: { text: "National Volleyball League • Stream Alert" },
       timestamp: new Date().toISOString(),
     };
   }
@@ -105,7 +105,7 @@ function buildEmbed(match: MatchPayload, eventType: MatchStatus) {
   if (eventType === "Finished") {
     const score = `${match.home_score ?? 0} - ${match.away_score ?? 0}`;
     return {
-      title: `🏆 CVR SA MATCH RESULT${star}`,
+      title: `🏆 NVL MATCH RESULT${star}`,
       description: `**${match.home_country || "Home"}** ${score} **${match.away_country || "Away"}**`,
       color: 0xf59e0b,
       fields: [
@@ -113,20 +113,20 @@ function buildEmbed(match: MatchPayload, eventType: MatchStatus) {
         { name: "Winner", value: match.winner_country ? `🏅 **${match.winner_country}**` : "No winner selected", inline: false },
         { name: "Set Scores", value: setLines(match), inline: false },
       ],
-      footer: { text: "CVR South America • Final Result" },
+      footer: { text: "National Volleyball League • Final Result" },
       timestamp: new Date().toISOString(),
     };
   }
 
   return {
-    title: `📅 CVR SA MATCH SCHEDULED${star}`,
-    description: "A new match has been added to the official CVR SA schedule.",
+    title: `📅 NVL MATCH SCHEDULED${star}`,
+    description: "A new match has been added to the official NVL schedule.",
     color: 0x10b981,
     fields: [
       ...baseFields(match),
       { name: "Status", value: "`SCHEDULED`", inline: false },
     ],
-    footer: { text: "CVR South America • Match Schedule" },
+    footer: { text: "National Volleyball League • Match Schedule" },
     timestamp: new Date().toISOString(),
   };
 }
@@ -193,7 +193,7 @@ export async function POST(request: NextRequest) {
     };
 
     if (eventType === "Live") {
-      message.content = `<@&${streamAlertRoleId}> 🔴 **CVR SA match is LIVE:** ${match.home_country || "Home"} vs ${match.away_country || "Away"}`;
+      message.content = `<@&${streamAlertRoleId}> 🔴 **NVL match is LIVE:** ${match.home_country || "Home"} vs ${match.away_country || "Away"}`;
       message.allowed_mentions = { roles: [streamAlertRoleId] };
     }
 

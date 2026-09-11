@@ -1,11 +1,11 @@
-# CVR SA - CVR South America
+# NVL - National Volleyball League
 
 A modern sports league management platform built with contemporary web
-technologies. CVR SA is a complete system for organizing competitions
+technologies. NVL is a complete system for organizing competitions
 for the Roblox game **CVR: Retro**, with authentication, fixtures,
 rankings and an admin panel.
 
-🌐 **[Visit the platform here](https://cvr-sa.vercel.app/)**
+🌐 **[Visit the platform here](https://nvl-site.vercel.app/)**
 
 ---
 
@@ -32,7 +32,7 @@ rankings and an admin panel.
 
 ### Backend & Deployment
 - **[Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)** - Serverless backend
-- **[Supabase](https://supabase.com/)** - Postgres database + Auth, shared with the cvr-sa-bot Discord bot
+- **[Supabase](https://supabase.com/)** - Postgres database + Auth, shared with the nvl-bot Discord bot
 - **[Vercel](https://vercel.com/)** - Hosting and deployment
 - **[Roblox API](https://developer.roblox.com/)** - Roblox integration
 
@@ -88,14 +88,14 @@ rankings and an admin panel.
 ### Prerequisites
 - Node.js 20+
 - npm, yarn or pnpm
-- A Supabase project with `schema.sql` (from the cvr-sa-bot repo) applied
+- A Supabase project with `schema.sql` (from the nvl-bot repo) applied
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/cvr-sa-site.git
-cd cvr-sa-site
+git clone https://github.com/your-username/nvl-site.git
+cd nvl-site
 
 # Install dependencies
 npm install
@@ -111,7 +111,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-The site expects the same Supabase project as **cvr-sa-bot** (see that
+The site expects the same Supabase project as **nvl-bot** (see that
 repo's `schema.sql` and `.env.example`). Team roles, matches, VIP
 subscriptions and matchmaking data are shared live between the bot and
 the site - there is no separate sync step.

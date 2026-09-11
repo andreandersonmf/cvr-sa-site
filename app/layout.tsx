@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'CVR South America',
-  description: 'Official CVR SA Website',
+  title: 'National Volleyball League',
+  description: 'Official NVL Website',
   icons: {
     icon: '/favicon.ico',
   },

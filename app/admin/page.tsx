@@ -6851,8 +6851,8 @@ export default function CVRSASitePage() {
       <footer className="border-t border-white/10 bg-[#160E08]">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="font-semibold text-white">CVR SA Admin</p>
-            <p>CVR South America Control Center</p>
+            <p className="font-semibold text-white">NVL Admin</p>
+            <p>National Volleyball League Control Center</p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-orange-400/10 bg-orange-500/[0.06] p-2 backdrop-blur-sm">

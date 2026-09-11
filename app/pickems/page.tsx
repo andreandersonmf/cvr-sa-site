@@ -354,7 +354,7 @@ export default function PickemsPage() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#140D07]/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
           <Link href="/" className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">
-            CVR SA
+            NVL
           </Link>
           <nav className="hidden flex-wrap gap-2 rounded-2xl border border-orange-400/10 bg-orange-500/[0.06] p-1.5 text-sm text-white/70 backdrop-blur-sm md:flex">
             <Link href="/" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/10">Home</Link>
@@ -630,7 +630,7 @@ export default function PickemsPage() {
 
       <footer className="border-t border-white/10 bg-[#160E08]">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
-          <p>CVR South America — Pickems</p>
+          <p>National Volleyball League — Pickems</p>
           <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-orange-400/10 bg-orange-500/[0.06] p-2 backdrop-blur-sm">
             <Link href="/" className="rounded-xl px-2 py-1 hover:bg-white/10 hover:text-white">Home</Link>
             <Link href="/matchmaking" className="rounded-xl px-2 py-1 hover:bg-white/10 hover:text-white">Matchmaking</Link>

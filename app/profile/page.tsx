@@ -365,7 +365,7 @@ export default function ProfilePage() {
       <main className="min-h-screen bg-[#140D07] px-6 py-10 text-white">
         <div className="mx-auto max-w-2xl rounded-[2rem] border border-white/10 bg-[#1C120A] p-8">
           <h1 className="text-4xl font-black">Profile</h1>
-          <p className="mt-4 text-white/70">You need to log in with Discord before opening your CVR SA profile.</p>
+          <p className="mt-4 text-white/70">You need to log in with Discord before opening your NVL profile.</p>
           <Link href="/login" className="mt-6 inline-flex rounded-2xl bg-[#5865F2] px-6 py-3 font-bold text-white">
             Login with Discord
           </Link>
@@ -379,7 +379,7 @@ export default function ProfilePage() {
       <div className="mx-auto max-w-6xl">
         <nav className="flex flex-wrap items-center justify-between gap-3">
           <Link href="/" className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">
-            CVR SA Profile
+            NVL Profile
           </Link>
           <div className="flex flex-wrap gap-2 text-sm text-white/70">
             <Link href="/" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Home</Link>

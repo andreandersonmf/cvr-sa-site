@@ -57,7 +57,7 @@ export default function LoginPage() {
       <div className="mx-auto max-w-3xl">
         <nav className="flex flex-wrap items-center justify-between gap-3">
           <Link href="/" className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">
-            CVR SA
+            NVL
           </Link>
           <div className="flex flex-wrap gap-2 text-sm text-white/70">
             <Link href="/" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Home</Link>
@@ -69,11 +69,11 @@ export default function LoginPage() {
 
         <section className="mt-12 rounded-[2rem] border border-white/10 bg-[#1C120A] p-8 shadow-2xl shadow-black/20">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
-            CVR SA Account
+            NVL Account
           </p>
           <h1 className="mt-3 text-4xl font-black md:text-5xl">Login with Discord</h1>
           <p className="mt-4 max-w-2xl text-white/70">
-            Use Discord as your CVR SA identity. After logging in, you can link your Roblox username/User ID and follow your team activity from your profile.
+            Use Discord as your NVL identity. After logging in, you can link your Roblox username/User ID and follow your team activity from your profile.
           </p>
 
           <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-5">

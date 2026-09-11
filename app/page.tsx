@@ -4679,7 +4679,7 @@ export default function CVRSASitePage() {
           <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center md:py-28">
             <div>
               <span className="inline-flex rounded-full border border-orange-400/20 bg-orange-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
-                Roblox CVR: Retro League • {activeSeason?.name ?? CURRENT_SEASON_LABEL} • {activeSeason?.theme_name ?? CURRENT_SEASON_THEME}
+                Roblox CVR: Retro League • {activeSeason?.name ?? CURRENT_SEASON_LABEL} • Countries
               </span>
 
               <h1 className="mt-6 text-5xl font-black leading-none tracking-tight md:text-7xl">
@@ -4690,7 +4690,7 @@ export default function CVRSASitePage() {
               </h1>
 
               <p className="mt-5 max-w-xl text-base leading-7 text-white/70 md:text-lg">
-                CVR SA is a CVR: Retro league focused on
+                NVL is a splinter CVR: Retro league focused on
                 organized fixtures and a clean competitive experience for
                 players, captains, and staff.
               </p>
@@ -4731,8 +4731,8 @@ export default function CVRSASitePage() {
                 <div className="rounded-[1.5rem] border border-orange-400/15 bg-[#2A1B0C]/90 p-8 text-center">
                   <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-[2rem] border border-white/10 bg-[#140D07]">
                     <Image
-                      src="/cvr-logo-orange.png"
-                      alt="CVR SA logo"
+                      src="/nvl-logo-black.png"
+                      alt="NVL logo"
                       fill
                       className="object-cover"
                     />
@@ -5869,7 +5869,7 @@ export default function CVRSASitePage() {
                   </h3>
                   <p className="mx-auto mt-2 max-w-sm text-sm text-white/60">
                     You need to be logged in with Discord to register a team.
-                    This connects the registration to your CVR SA profile.
+                    This connects the registration to your NVL profile.
                   </p>
                   <Link
                     href="/login"
@@ -5884,7 +5884,7 @@ export default function CVRSASitePage() {
                 className="rounded-[2rem] border border-white/10 bg-[#1C120A] p-6 md:p-8"
               >
                 <div className="mb-5 rounded-[1.5rem] border border-orange-400/20 bg-orange-400/10 p-4 text-sm text-amber-200">
-                  Discord profile connected: @{siteProfile.discord_username || "CVR SA user"}.
+                  Discord profile connected: @{siteProfile.discord_username || "NVL user"}.
                   {siteProfile.roblox_username ? " Roblox data was pre-filled from your profile." : " Add your Roblox info in Profile to auto-fill future registrations."}
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
@@ -6008,7 +6008,7 @@ export default function CVRSASitePage() {
                         className="mt-1 h-4 w-4 rounded border-white/20 bg-transparent accent-orange-500"
                       />
                       <span>
-                        I confirm that I am in the official CVR SA Discord server
+                        I confirm that I am in the official NVL Discord server
                         and understand that all players must also be there:{" "}
                         <a
                           href="https://discord.gg/sPPnFDVMgq"
@@ -6052,7 +6052,7 @@ export default function CVRSASitePage() {
                 Referee / Media / Stat Tracker Registration
               </h2>
               <p className="mt-4 max-w-lg text-white/70">
-                Apply to join CVR SA staff as a Referee, Media member, or Stat
+                Apply to join NVL staff as a Referee, Media member, or Stat
                 Tracker. Approved applications will appear in the admin panel
                 and can be assigned to upcoming matches.
               </p>
@@ -6103,7 +6103,7 @@ export default function CVRSASitePage() {
                   </h3>
                   <p className="mx-auto mt-2 max-w-sm text-sm text-white/60">
                     You need to be logged in with Discord to apply for a staff
-                    role. This connects the application to your CVR SA profile.
+                    role. This connects the application to your NVL profile.
                   </p>
                   <Link
                     href="/login"
@@ -6118,7 +6118,7 @@ export default function CVRSASitePage() {
                 className="rounded-[2rem] border border-white/10 bg-[#1C120A] p-6 md:p-8"
               >
                 <div className="mb-5 rounded-[1.5rem] border border-orange-400/20 bg-orange-400/10 p-4 text-sm text-amber-200">
-                  Discord profile connected: @{siteProfile.discord_username || "CVR SA user"}.
+                  Discord profile connected: @{siteProfile.discord_username || "NVL user"}.
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
                   <div className="md:col-span-2">
@@ -6210,7 +6210,7 @@ export default function CVRSASitePage() {
                       />
                       <span>
                         {staffRegisterForm.role === "Media"
-                          ? "I confirm that I have a computer and setup capable of recording or streaming CVR SA matches with good visual quality, stability, and responsibility."
+                          ? "I confirm that I have a computer and setup capable of recording or streaming NVL matches with good visual quality, stability, and responsibility."
                           : staffRegisterForm.role === "Stat Tracker"
                             ? "I confirm that I understand the responsibility of being a Stat Tracker and will enter match stats carefully, accurately, and only for assigned matches."
                             : "I confirm that I understand the responsibility of being a Referee and will officiate matches fairly, impartially, and according to league standards without favoring either side."}
@@ -6270,8 +6270,8 @@ export default function CVRSASitePage() {
       <footer className="border-t border-white/10 bg-[#160E08]">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="font-semibold text-white">CVR SA</p>
-            <p>CVR South America</p>
+            <p className="font-semibold text-white">NVL</p>
+            <p>National Volleyball League</p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">

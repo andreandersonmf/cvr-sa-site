@@ -1017,7 +1017,7 @@ export default function ArchivesPage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">
-              CVR South America
+              National Volleyball League
             </p>
             <h1 className="mt-2 text-3xl font-black md:text-5xl">Season Archives</h1>
           </div>

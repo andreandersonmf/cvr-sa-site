@@ -34,7 +34,7 @@ const guildId = process.env.DISCORD_GUILD_ID || process.env.GUILD_ID || "";
 const botToken = process.env.DISCORD_BOT_TOKEN || process.env.DISCORD_TOKEN || "";
 const captainRoleId = process.env.DISCORD_CAPTAIN_ROLE_ID || process.env.CAPTAIN_ROLE_ID || "";
 const viceCaptainRoleId = process.env.DISCORD_VICE_CAPTAIN_ROLE_ID || process.env.VICE_CAPTAIN_ROLE_ID || "";
-// New for CVR SA: same permissions as Vice Captain everywhere. A team
+// New for NVL: same permissions as Vice Captain everywhere. A team
 // can have both a Vice Captain and a Court Captain at the same time.
 const courtCaptainRoleId = process.env.DISCORD_COURT_CAPTAIN_ROLE_ID || process.env.COURT_CAPTAIN_ROLE_ID || "";
 const playerRoleId = process.env.DISCORD_PLAYER_ROLE_ID || process.env.PLAYER_ROLE_ID || "";
@@ -109,7 +109,7 @@ async function discordRole(method: "PUT" | "DELETE", userId: string, roleId?: st
       method,
       headers: {
         Authorization: `Bot ${botToken}`,
-        "X-Audit-Log-Reason": reason ? encodeURIComponent(reason.slice(0, 512)) : "CVR SA site sync",
+        "X-Audit-Log-Reason": reason ? encodeURIComponent(reason.slice(0, 512)) : "NVL site sync",
       },
     },
   );
@@ -158,7 +158,7 @@ async function recordTeamTransaction(payload: Record<string, any>) {
   const externalId = `site_${Date.now()}_${Math.random().toString(16).slice(2)}`;
   const { error } = await supabaseAdmin.from("team_transactions").insert({
     source: "site",
-    external_source: "cvr_sa_site",
+    external_source: "nvl_site",
     external_id: externalId,
     status: "accepted",
     handled_at: new Date().toISOString(),
@@ -243,7 +243,7 @@ async function setTeamRole(ctx: NonNullable<Awaited<ReturnType<typeof getAuthCon
   const team = data as TeamRow;
 
   if (team?.captain_discord_id) {
-    await addRoles(team.captain_discord_id, [discordRoleId, captainRoleId], `CVR SA team role connected by ${ctx.discordUsername ?? ctx.user.email}`);
+    await addRoles(team.captain_discord_id, [discordRoleId, captainRoleId], `NVL team role connected by ${ctx.discordUsername ?? ctx.user.email}`);
   }
 
   return NextResponse.json({ ok: true, team });
@@ -265,7 +265,7 @@ async function deleteTeam(ctx: NonNullable<Awaited<ReturnType<typeof getAuthCont
   for (const player of roster) {
     const playerDiscordId = await resolveDiscordId(player);
     const extraRole = extraRoleIdFor(player.role);
-    await removeRoles(playerDiscordId, [teamRoleId, extraRole], `CVR SA team deleted by ${ctx.discordUsername ?? ctx.user.email}`);
+    await removeRoles(playerDiscordId, [teamRoleId, extraRole], `NVL team deleted by ${ctx.discordUsername ?? ctx.user.email}`);
   }
 
   const captainDiscordId = await resolveDiscordId({
@@ -273,7 +273,7 @@ async function deleteTeam(ctx: NonNullable<Awaited<ReturnType<typeof getAuthCont
     discord_username: team.captain_discord,
     roblox_user_id: team.captain_roblox_id,
   });
-  await removeRoles(captainDiscordId, [teamRoleId, captainRoleId], `CVR SA team deleted by ${ctx.discordUsername ?? ctx.user.email}`);
+  await removeRoles(captainDiscordId, [teamRoleId, captainRoleId], `NVL team deleted by ${ctx.discordUsername ?? ctx.user.email}`);
 
   await supabaseAdmin.from("team_players").delete().eq("team_id", teamId);
   await supabaseAdmin.from("team_transactions").delete().eq("team_id", teamId);
@@ -347,11 +347,11 @@ async function changeCaptain(ctx: NonNullable<Awaited<ReturnType<typeof getAuthC
   if (error) return jsonError(error.message, 500);
 
   const teamRoleId = team.discord_role_id;
-  await removeRoles(newCaptainDiscordId, [viceCaptainRoleId, playerRoleId], `CVR SA captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
-  await addRoles(newCaptainDiscordId, [teamRoleId, captainRoleId], `CVR SA captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
+  await removeRoles(newCaptainDiscordId, [viceCaptainRoleId, playerRoleId], `NVL captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
+  await addRoles(newCaptainDiscordId, [teamRoleId, captainRoleId], `NVL captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
 
-  await removeRoles(oldCaptainDiscordId, [captainRoleId], `CVR SA captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
-  await addRoles(oldCaptainDiscordId, [teamRoleId, extraRoleIdFor(oldRole)], `CVR SA captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
+  await removeRoles(oldCaptainDiscordId, [captainRoleId], `NVL captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
+  await addRoles(oldCaptainDiscordId, [teamRoleId, extraRoleIdFor(oldRole)], `NVL captain changed by ${ctx.discordUsername ?? ctx.user.email}`);
 
   await recordTeamTransaction({
     season_id: team.season_id ?? null,
@@ -407,7 +407,7 @@ async function addPlayer(ctx: NonNullable<Awaited<ReturnType<typeof getAuthConte
   });
   if (error) return jsonError(error.message, 500);
 
-  await addRoles(discordId || cleanId(body.discordId), [team.discord_role_id, extraRoleIdFor(role)], `CVR SA roster add by ${ctx.discordUsername ?? ctx.user.email}`);
+  await addRoles(discordId || cleanId(body.discordId), [team.discord_role_id, extraRoleIdFor(role)], `NVL roster add by ${ctx.discordUsername ?? ctx.user.email}`);
 
   await recordTeamTransaction({
     season_id: team.season_id ?? null,
@@ -445,7 +445,7 @@ async function removePlayer(ctx: NonNullable<Awaited<ReturnType<typeof getAuthCo
 
   const playerDiscordId = await resolveDiscordId(player as TeamPlayerRow);
   const extraRole = extraRoleIdFor(player.role);
-  await removeRoles(playerDiscordId, [team.discord_role_id, extraRole], `CVR SA roster remove by ${ctx.discordUsername ?? ctx.user.email}`);
+  await removeRoles(playerDiscordId, [team.discord_role_id, extraRole], `NVL roster remove by ${ctx.discordUsername ?? ctx.user.email}`);
 
   const { error } = await supabaseAdmin.from("team_players").delete().eq("id", playerId);
   if (error) return jsonError(error.message, 500);
@@ -496,7 +496,7 @@ async function leaveTeam(ctx: NonNullable<Awaited<ReturnType<typeof getAuthConte
   if (!team) return jsonError("Team not found.", 404);
 
   const extraRole = extraRoleIdFor(player.role);
-  await removeRoles(ctx.discordId, [team.discord_role_id, extraRole], "CVR SA profile leave team");
+  await removeRoles(ctx.discordId, [team.discord_role_id, extraRole], "NVL profile leave team");
 
   const { error } = await supabaseAdmin.from("team_players").delete().eq("id", player.id);
   if (error) return jsonError(error.message, 500);

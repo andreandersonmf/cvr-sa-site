@@ -748,7 +748,7 @@ export default function StatsPage() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#140D07]/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
           <Link href="/" className="font-bold text-amber-300">
-            ← Back to CVR SA
+            ← Back to NVL
           </Link>
 
           <div className="flex items-center gap-3">
@@ -794,7 +794,7 @@ export default function StatsPage() {
                 Stat Track
               </span>
               <h1 className="mt-5 text-4xl font-black md:text-6xl">
-                CVR SA Stats Hub
+                NVL Stats Hub
               </h1>
               <p className="mt-4 max-w-2xl text-white/65">
                 Track player stats by set, team totals, and automatic percentage calculations.

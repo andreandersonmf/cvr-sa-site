@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
             currency: "brl",
             unit_amount: pricing.cents,
             product_data: {
-              name: tier === "vip_plus" ? "CVR SA Matchmaking VIP+ (30 days)" : "CVR SA Matchmaking VIP (30 days)",
+              name: tier === "vip_plus" ? "NVL Matchmaking VIP+ (30 days)" : "NVL Matchmaking VIP (30 days)",
             },
           },
           quantity: 1,
