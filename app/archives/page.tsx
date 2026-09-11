@@ -1080,7 +1080,7 @@ export default function ArchivesPage() {
         {selectedSeason ? (
           <section className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Theme", value: new Set(teams.map(t => t.country)).size, icon: Trophy },
+              { label: "Theme", value: "Countries", icon: Trophy },
               { label: "Teams", value: teams.length, icon: Users },
               { label: "Matches", value: matches.length, icon: CalendarDays },
               { label: "Stats Rows", value: stats.length, icon: BarChart3 },
