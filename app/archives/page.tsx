@@ -1080,7 +1080,7 @@ export default function ArchivesPage() {
         {selectedSeason ? (
           <section className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Theme", value: selectedSeason.theme_name ?? "-", icon: Trophy },
+              { label: "Countries", value: selectedSeason.theme_name ?? "-", icon: Trophy },
               { label: "Teams", value: teams.length, icon: Users },
               { label: "Matches", value: matches.length, icon: CalendarDays },
               { label: "Stats Rows", value: stats.length, icon: BarChart3 },
