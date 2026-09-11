@@ -4786,7 +4786,7 @@ export default function CVRSASitePage() {
                     </a>
 
                     <a
-                      href="https://challonge.com/pt_BR/communities/cvr-sa"
+                      href="https://challonge.com/pt_BR/communities/nationalvl"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex flex-col items-center gap-2"
