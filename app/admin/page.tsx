@@ -6796,6 +6796,26 @@ export default function CVRSASitePage() {
                                     referee: "Referee",
                                     media: "Media",
                                   };
+
+                                  // Only the Owner can grant or revoke the Administrator role
+                                  const isAdminRole = role === "administrator";
+                                  const currentUserIsOwner = siteAccess?.isOwner === true;
+                                  if (isAdminRole && !currentUserIsOwner) {
+                                    return (
+                                      <span
+                                        key={role}
+                                        title="Only the Owner can grant or revoke Administrator"
+                                        className={`cursor-not-allowed select-none rounded-2xl border px-3 py-2 text-xs font-semibold opacity-40 ${
+                                          active
+                                            ? "border-orange-400/30 bg-orange-400/15 text-amber-300"
+                                            : "border-white/10 bg-white/5 text-white/60"
+                                        }`}
+                                      >
+                                        {active ? `✓ ${labels[role]}` : labels[role]}
+                                      </span>
+                                    );
+                                  }
+
                                   return (
                                     <button
                                       key={role}
