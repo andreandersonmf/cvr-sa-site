@@ -215,6 +215,7 @@ const COUNTRY_THEMES: Country[] = [
   { name: "Greece", code: "gr", emoji: "🇬🇷" },
   { name: "India", code: "in", emoji: "🇮🇳" },
   { name: "Ireland", code: "ie", emoji: "🇮🇪" },
+  { name: "Israel", code: "il", emoji: "🇮🇱" },
   { name: "Italy", code: "it", emoji: "🇮🇹" },
   { name: "Japan", code: "jp", emoji: "🇯🇵" },
   { name: "Mexico", code: "mx", emoji: "🇲🇽" },
@@ -4683,9 +4684,9 @@ export default function CVRSASitePage() {
               </span>
 
               <h1 className="mt-6 text-5xl font-black leading-none tracking-tight md:text-7xl">
-                CVR
+                National
                 <span className="block text-amber-300">
-                  South America
+                  Volleyball League
                 </span>
               </h1>
 

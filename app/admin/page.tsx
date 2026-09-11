@@ -248,6 +248,7 @@ const COUNTRY_THEMES: Country[] = [
   { name: "Greece", code: "gr", emoji: "🇬🇷" },
   { name: "India", code: "in", emoji: "🇮🇳" },
   { name: "Ireland", code: "ie", emoji: "🇮🇪" },
+  { name: "Israel", code: "il", emoji: "🇮🇱" },
   { name: "Italy", code: "it", emoji: "🇮🇹" },
   { name: "Japan", code: "jp", emoji: "🇯🇵" },
   { name: "Mexico", code: "mx", emoji: "🇲🇽" },
