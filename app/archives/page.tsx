@@ -1063,7 +1063,7 @@ export default function ArchivesPage() {
               >
                 {seasons.map((season) => (
                   <option key={season.id} value={season.id} className="bg-[#170F08]">
-                    {season.name} {season.theme_name ? `• ${season.theme_name}` : ""}
+                    {season.name}
                   </option>
                 ))}
               </select>
@@ -1080,7 +1080,7 @@ export default function ArchivesPage() {
         {selectedSeason ? (
           <section className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Countries", value: selectedSeason.theme_name ?? "-", icon: Trophy },
+              { label: "Theme", value: new Set(teams.map(t => t.country)).size, icon: Trophy },
               { label: "Teams", value: teams.length, icon: Users },
               { label: "Matches", value: matches.length, icon: CalendarDays },
               { label: "Stats Rows", value: stats.length, icon: BarChart3 },
